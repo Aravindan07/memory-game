@@ -1,0 +1,45 @@
+.wrapper {
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 200px;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.5rem;
+}
+
+.wrapper h2 {
+	color: #0129f5;
+	margin: 1rem 0;
+}
+
+.button {
+	color: #212121;
+	margin: 1rem 0;
+	border: none;
+	border-radius: 5px;
+	font-size: 1.1rem;
+	font-weight: 800;
+	cursor: pointer;
+	letter-spacing: 1px;
+}
+
+.button:hover {
+	box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.25);
+}
+
+.start-button {
+	background-color: #f5cd01;
+	padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 700px) {
+	.wrapper {
+		width: 80%;
+	}
+}
