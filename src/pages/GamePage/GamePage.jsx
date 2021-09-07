@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { Prompt } from "react-router";
 import Card from "../../components/Card/Card";
 import { data } from "../../data";
 import { shuffle } from "../../utils/shuffle";
@@ -98,26 +99,29 @@ function GamePage() {
 	};
 
 	return (
-		<div className="game-page-wrapper">
-			<Header
-				noOfMoves={noOfMoves}
-				matches={matches}
-				restartClickHandler={restartClickHandler}
-			/>
-			<div className="game-board">
-				{cards.map((item) => (
-					<Card
-						key={item.id}
-						value={item.value}
-						index={item.id}
-						handleClick={handleCardClick}
-						isFlipped={checkIsFlipped(item.id)}
-						isDisabled={checkIsDisabled(item)}
-					/>
-				))}
-				{allMatched && <AllCorrect restartClickHandler={restartClickHandler} />}
+		<>
+			<Prompt when={!allMatched} message="Are you sure you want to leave?" />
+			<div className="game-page-wrapper">
+				<Header
+					noOfMoves={noOfMoves}
+					matches={matches}
+					restartClickHandler={restartClickHandler}
+				/>
+				<div className="game-board">
+					{cards.map((item) => (
+						<Card
+							key={item.id}
+							value={item.value}
+							index={item.id}
+							handleClick={handleCardClick}
+							isFlipped={checkIsFlipped(item.id)}
+							isDisabled={checkIsDisabled(item)}
+						/>
+					))}
+					{allMatched && <AllCorrect restartClickHandler={restartClickHandler} />}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
